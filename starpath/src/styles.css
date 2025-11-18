@@ -1,0 +1,29 @@
+/*Importamos una fuente desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* 2. :root es donde guardamos nuestras de color */
+:root {
+  --color-primario: #2c3e50;  /* Un azul oscuro para el navbar/footer */
+  --color-secundario: #34495e; /* Un gris azulado para fondos */
+  --color-texto-principal: #ecf0f1; /* Un blanco no muy fuerte */
+  --color-acento: #3498db;      /* Un azul para enlaces */
+  --color-fondo: #f9f9f9;     /* Un gris muy muy claro para el fondo */
+}
+
+/* Reseteo básico */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--color-fondo);
+}
+
+/* Estilos base para los enlaces */
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
