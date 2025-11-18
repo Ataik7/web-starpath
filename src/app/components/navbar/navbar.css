@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'PixelFont';
+  src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+.navbar {
+  font-family: 'PixelFont', monospace;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primario);
+  padding: 0 30px;
+  color: var(--color-texto-principal);
+}
+
+.nav-logo a {
+  color: var(--color-acento);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 15px 0;
+}
+
+.nav-links, .nav-auth {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-links li a, .nav-auth li a {
+  display: block;
+  color: var(--color-texto-principal);
+  text-decoration: none;
+  padding: 20px 15px;
+  transition: background-color 0.3s;
+  font-size: 1.5rem;
+}
+
+.nav-links li a:hover, .nav-auth li a:hover {
+  background-color: var(--color-secundario);
+}
+
+/* Esta clase la añade Angular automáticamente a los enlaces activos */
+.active {
+  background-color: var(--color-acento);
+  color: var(--color-primario) !important; /* !important para forzarlo */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
