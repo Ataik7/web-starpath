@@ -4,51 +4,119 @@
 }
 
 .navbar {
-  font-family: 'PixelFont', monospace;
+  font-family: 'PixelFont', monospace; /* Se aplica a todo */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-primario);
-  padding: 0 30px;
+  padding: 1rem 2rem; 
   color: var(--color-texto-principal);
-  font-size: 1.8rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-logo a {
+/* --- LOGO --- */
+.logo-link {
   color: var(--color-acento);
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.5rem;
-  padding: 15px 0;
+  font-size: 1.2rem; 
+  text-shadow: 2px 2px 0px #000; /* Sombra "retro" al texto */
 }
 
-.nav-links, .nav-auth {
+/* --- ENLACES (Centro) --- */
+.nav-links {
   list-style-type: none;
   display: flex;
+  gap: 20px; 
   margin: 0;
+  padding: 0;
 }
 
-.nav-links li a, .nav-auth li a {
+.nav-links a {
   display: block;
   color: var(--color-texto-principal);
   text-decoration: none;
-  padding: 20px 15px;
-  transition: background-color 0.3s;
-  font-size: 1.5rem;
+  padding: 10px;
+  transition: color 0.3s;
+  font-size: 1.0rem; 
+  line-height: 1.5;
 }
 
-.nav-links li a:hover, .nav-auth li a:hover {
-  background-color: var(--color-secundario);
+.nav-links a:hover {
+  color: var(--color-acento);
+  text-shadow: 1px 1px 0px #fff; 
 }
 
-/* Esta clase la añade Angular automáticamente a los enlaces activos */
 .active {
-  background-color: var(--color-acento);
-  color: var(--color-primario) !important; /* !important para forzarlo */
+  color: var(--color-acento) !important;
+  border-bottom: 3px solid var(--color-acento); 
+  padding-bottom: 5px;
 }
+
+/* --- BOTONES (Estilo Pixel Art 3D) --- */
 
 .auth-buttons {
   display: flex;
-  gap: 15px;
+  gap: 20px; 
+  align-items: center;
 }
 
+/* 1. Base común para ambos botones */
+.btn-login, .btn-register {
+  font-family: 'PixelFont', monospace;
+  font-size: 0.85rem; 
+  padding: 12px 24px; 
+  text-transform: uppercase;
+  border-radius: 4px; 
+  cursor: pointer;
+  transition: all 0.1s ease;
+  border: 2px solid; 
+  letter-spacing: 1px;
+  position: relative;
+  top: 0;
+}
+
+
+.btn-login {
+  background-color: rgba(255, 255, 255, 0.1); 
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 4px 0px #5c5c5c; 
+}
+
+.btn-login:hover {
+  background-color: #ffffff; 
+  color: var(--color-primario); /* Texto oscuro */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0px #5c5c5c; /* La sombra crece */
+}
+
+.btn-login:active {
+  transform: translateY(4px); /* Efecto de presionar */
+  box-shadow: 0 0px 0px #5c5c5c; /* La sombra desaparece al pulsar */
+}
+
+
+.btn-register {
+  background-color: var(--color-acento); 
+  border-color: var(--color-acento);
+  color: #fff;
+  /* Sombra: Truco visual -> Un tono mucho más oscuro que el acento */
+  /* Si tu acento es brillante, esto crea el borde 3D oscuro */
+  box-shadow: 0 4px 0px #1038a5; 
+}
+
+.btn-register:hover {
+  /* Un poco más claro al pasar el ratón para que brille */
+  filter: brightness(1.1); 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0px #1038a5; /* La sombra oscura crece */
+}
+
+.btn-register:active {
+  transform: translateY(4px); /* Se hunde */
+  box-shadow: 0 0px 0px #1038a5; /* Sin sombra */
+}
