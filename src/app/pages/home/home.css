@@ -1,0 +1,88 @@
+/* --- Portada --- */
+.hero {
+  height: 90vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Fondo: Un degradado azul oscuro sobre una imagen */
+  background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.8)), url('https://picsum.photos/id/122/1920/1080');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-texto-principal);
+  position: relative;
+}
+
+/* Título */
+.hero h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900; 
+  font-size: 4rem;  
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(233, 69, 96, 0.5); 
+}
+
+/* El Subtítulo */
+.subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 16px 32px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 6px; 
+  transition: all 0.3s ease;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+/* Botón Principal (JUGAR) */
+.btn-primary {
+  background-color: var(--color-acento);
+  color: white;
+  border: 2px solid var(--color-acento);
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4); 
+}
+
+.btn-primary:hover {
+  background-color: #ff5775; 
+  border-color: #ff5775;
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 25px rgba(233, 69, 96, 0.6); 
+}
+
+/* Botón Secundario (NOVEDADES) */
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  transform: translateY(-3px);
+}

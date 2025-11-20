@@ -9,6 +9,7 @@ import { Game } from './pages/game/game';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Faq } from './pages/faq/faq';
+import { Privacy } from './pages/privacy/privacy'; 
 
 export const routes: Routes = [
   { path: '', component: Home }, // Pagina principal
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'faq', component: Faq }, // Preguntas frecuentes
   { path: 'login', component: Login }, // Iniciar sesion
   { path: 'register', component: Register }, // Registro
+  { path: 'privacy', component: Privacy }, //Política de privacidad
 
   // Por si acaso da errores
     { path: '**', redirectTo: '', pathMatch: 'full' }

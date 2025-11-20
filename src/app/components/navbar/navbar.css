@@ -1,7 +1,4 @@
-@font-face {
-  font-family: 'PixelFont';
-  src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
 .navbar {
   font-family: 'PixelFont', monospace; /* Se aplica a todo */

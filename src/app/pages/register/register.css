@@ -1,0 +1,94 @@
+/* Contenedor principal */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+  background-color: var(--color-fondo);
+}
+
+/* Tarjeta */
+.auth-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  font-family: 'Lato', sans-serif; /* O 'Press Start 2P' si prefieres el estilo retro */
+  font-weight: 900;
+  color: var(--color-primario);
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--color-secundario);
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--color-acento);
+  outline: none;
+}
+
+/* Botón */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--color-acento);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  background-color: #ff5775;
+  transform: translateY(-2px);
+}
+
+/* Enlace inferior */
+.switch-auth {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.switch-auth a {
+  color: var(--color-acento);
+  font-weight: 700;
+ 
+}
