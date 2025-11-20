@@ -103,17 +103,17 @@
   color: #fff;
   /* Sombra: Truco visual -> Un tono mucho más oscuro que el acento */
   /* Si tu acento es brillante, esto crea el borde 3D oscuro */
-  box-shadow: 0 4px 0px #1038a5; 
+  box-shadow: 0 4px 0px #1d59fc; 
 }
 
 .btn-register:hover {
   /* Un poco más claro al pasar el ratón para que brille */
   filter: brightness(1.1); 
   transform: translateY(-2px);
-  box-shadow: 0 6px 0px #1038a5; /* La sombra oscura crece */
+  box-shadow: 0 6px 0px #1d59fc; /* La sombra oscura crece */
 }
 
 .btn-register:active {
   transform: translateY(4px); /* Se hunde */
-  box-shadow: 0 0px 0px #1038a5; /* Sin sombra */
+  box-shadow: 0 0px 0px #1d59fc; /* Sin sombra */
 }
