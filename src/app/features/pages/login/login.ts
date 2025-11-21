@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router'; 
+import { Router, RouterLink } from '@angular/router'; 
 import { signIn } from '../../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 
@@ -14,14 +14,16 @@ export class Login {
   email = '';
   password = '';
 
+  constructor(private router: Router) {}
+
   async login() {
-    const { data, error} = await signIn(this.email, this.password);
+    const { data, error } = await signIn(this.email, this.password);
 
     if (error) {
-      alert('Error' + error.message);
+      alert('Error: ' + error.message);
     } else {
-      alert('Inicio de sesion exitoso')
+      alert('Inicio de sesión exitoso');
+      this.router.navigate(['/dashboard']); // 👈 redirige al dashboard
     }
   }
-
 }

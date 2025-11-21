@@ -10,6 +10,9 @@ import { Login } from '../features/pages/login/login';
 import { Register } from '../features/pages/register/register';
 import { Faq } from '../features/pages/faq/faq';
 import { Privacy } from '../features/pages/privacy/privacy'; 
+import { Dashboard } from '../features/pages/dashboard/dashboard';
+import { AuthGuard } from '../core/services/auth.guard';
+
 
 export const routes: Routes = [
   { path: '', component: Home }, // Pagina principal
@@ -24,6 +27,7 @@ export const routes: Routes = [
   { path: 'login', component: Login }, // Iniciar sesion
   { path: 'register', component: Register }, // Registro
   { path: 'privacy', component: Privacy }, // Política de privacidad
+  { path: 'dashboard', component: Dashboard, canActivate: [AuthGuard] },
 
   // Por si acaso da errores
     { path: '**', redirectTo: '', pathMatch: 'full' }
