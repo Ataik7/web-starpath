@@ -15,10 +15,16 @@ export class Register {
   username = '';
   email = '';
   password = '';
+  acceptedTerms = false; 
 
   constructor(private router: Router) {}
 
  async register() {
+
+  if (!this.acceptedTerms) {
+    alert('Debes aceptar los términos y condiciones para continuar.');
+    return;
+  }
   const { user, error } = await signUp(this.email, this.password);
 
   if (error) {
