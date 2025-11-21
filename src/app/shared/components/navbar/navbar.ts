@@ -10,6 +10,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 })
 export class Navbar implements OnInit {
   user: any = null;
+  
 
   async ngOnInit() {
     const { data: { user } } = await supabase.auth.getUser();

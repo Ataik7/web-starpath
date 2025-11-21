@@ -91,3 +91,18 @@
   color: var(--color-acento);
   font-weight: 700;
 }
+
+.forgot-password {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.forgot-password a {
+  font-size: 0.9em;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
