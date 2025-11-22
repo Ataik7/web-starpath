@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router'; 
+import { Router, RouterLink } from '@angular/router';
 import { signUp } from '../../../core/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { supabase } from '../../../core/services/supabase.config';
@@ -7,7 +7,7 @@ import { supabase } from '../../../core/services/supabase.config';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, FormsModule], 
+  imports: [RouterLink, FormsModule],
   templateUrl: './register.html',
   styleUrls: ['./register.css']
 })
@@ -15,23 +15,46 @@ export class Register {
   username = '';
   email = '';
   password = '';
-  acceptedTerms = false; 
+  acceptedTerms = false;
+
+  errores: string[] = [];
 
   constructor(private router: Router) {}
 
- async register() {
+  async register() {
+    this.errores = [];
 
-  if (!this.acceptedTerms) {
-    alert('Debes aceptar los términos y condiciones para continuar.');
-    return;
-  }
-  const { user, error } = await signUp(this.email, this.password);
+    // Validaciones de campos vacíos
+    if (!this.username) {
+      this.errores.push('Debes introducir un nombre de usuario.');
+    }
+    if (!this.email) {
+      this.errores.push('Debes introducir un correo electrónico.');
+    }
+    if (!this.password) {
+      this.errores.push('Debes introducir una contraseña.');
+    }
+    if (!this.acceptedTerms) {
+      this.errores.push('Debes aceptar los términos y condiciones para continuar.');
+    }
 
-  if (error) {
-    alert('Error: ' + error.message);
-  } else {
+    if (this.errores.length > 0) {
+      return;
+    }
+
+    const { user, error } = await signUp(this.email, this.password);
+
+    if (error) {
+      const msg = error.message.toLowerCase();
+      if (msg.includes('already') || msg.includes('registered') || msg.includes('duplicate')) {
+        this.errores.push('El correo electrónico ya está registrado.');
+      } else {
+        this.errores.push('Error: ' + error.message);
+      }
+      return;
+    }
+
     if (user) {
-      // Insertar perfil en la tabla "profiles"
       const { error: profileError } = await supabase
         .from('profiles')
         .insert([
@@ -39,12 +62,16 @@ export class Register {
         ]);
 
       if (profileError) {
-        alert('Error al guardar perfil: ' + profileError.message);
+        const msg = profileError.message.toLowerCase();
+        if (msg.includes('duplicate')) {
+          this.errores.push('El nombre de usuario ya está en uso.');
+        } else {
+          this.errores.push('Error al guardar perfil: ' + profileError.message);
+        }
       } else {
-        alert('Registro exitoso, revisa tu correo para confirmar');
-        this.router.navigate(['/login']); // redirige al login
+        // Redirige automáticamente al login tras 2 segundos
+        setTimeout(() => this.router.navigate(['/login']), 2000);
       }
     }
   }
-}
 }

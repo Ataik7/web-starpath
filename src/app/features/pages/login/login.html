@@ -2,6 +2,18 @@
   <div class="auth-card">
     <h2>INICIAR SESIÓN</h2>
 
+    <!-- Mostrar múltiples errores -->
+    @if (errores.length > 0) {
+      @for (error of errores; track error) {
+        <div class="alert error">{{ error }}</div>
+      }
+    }
+
+    <!-- Mensaje de éxito -->
+    @if (successMessage) {
+      <div class="alert success">{{ successMessage }}</div>
+    }
+
     <form (ngSubmit)="login()">
       <div class="form-group">
         <label for="email">Correo Electrónico</label>
@@ -10,8 +22,7 @@
 
       <div class="form-group">
         <label for="password">Contraseña</label>
-        <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Escriba su contraseña"
-          required>
+        <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Escriba su contraseña" required>
       </div>
 
       <button type="submit" class="btn-submit">ENTRAR</button>
