@@ -1,37 +1,56 @@
-/* Contenedor principal: Centra todo en la pantalla */
+/* 1. CONTENEDOR PRINCIPAL (Centrado total) */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; /* Ocupa la altura de la pantalla */
+  min-height: 80vh; /* Ocupa casi toda la pantalla */
   padding: 20px;
   background-color: var(--color-fondo);
 }
 
-/* La tarjeta blanca del formulario */
+/* 2. LA TARJETA (Card) */
 .auth-card {
   background-color: white;
   padding: 40px;
-  border-radius: 12px; /* Bordes suaves */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Sombra muy suave y elegante */
   width: 100%;
-  max-width: 400px;
-  text-align: center;
+  max-width: 420px; /* Ancho tope para que no se estire en PC */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* Sombra suave y moderna */
+  text-align: center; /* Para centrar título y botón */
 }
 
+/* Título */
 .auth-card h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   color: var(--color-primario);
   margin-bottom: 30px;
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* Estilos de los campos (Inputs) */
+/* 3. ALERTAS DE ERROR */
+.error-alert {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626; /* Rojo error */
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.error-alert ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* 4. CAMPOS DEL FORMULARIO */
 .form-group {
   margin-bottom: 20px;
-  text-align: left;
+  text-align: left; /* Etiquetas alineadas a la izquierda */
 }
 
 .form-group label {
@@ -40,25 +59,50 @@
   font-weight: 700;
   color: var(--color-secundario);
   font-size: 0.9rem;
+  font-family: 'Lato', sans-serif;
 }
 
-.form-group input {
+.form-group input[type="email"],
+.form-group input[type="password"] {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #e2e8f0;
   border-radius: 6px;
   font-size: 1rem;
   font-family: 'Lato', sans-serif;
-  transition: border-color 0.3s;
-  box-sizing: border-box; /* Para que el padding no rompa el ancho */
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Vital para que el padding no rompa el ancho */
 }
 
 .form-group input:focus {
-  border-color: var(--color-acento); /* Se pone rosa/rojo al escribir */
+  border-color: var(--color-acento);
   outline: none;
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1); /* Brillo suave al escribir */
 }
 
-/* El botón de Entrar */
+/* 5. CHECKBOX "RECÚERDAME" */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.checkbox-group input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--color-acento); /* Pinta el tick de tu color */
+}
+
+.checkbox-group label {
+  margin-bottom: 0; /* Quitar margen del label normal */
+  font-weight: 400;
+  cursor: pointer;
+  color: #64748b;
+}
+
+/* 6. BOTÓN DE ENTRAR */
 .btn-submit {
   width: 100%;
   padding: 14px;
@@ -70,89 +114,56 @@
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.2s ease;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(233, 69, 96, 0.2);
 }
 
-.btn-submit:hover {
-  background-color: #ff5775; /* Un poco más claro */
+.btn-submit:hover:not(:disabled) {
+  background-color: #ff5775; /* Un tono más claro */
   transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(233, 69, 96, 0.3);
 }
 
-/* Enlace de abajo "¿No tienes cuenta?" */
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Estado Cargando/Deshabilitado */
+.btn-submit:disabled {
+  background-color: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* 7. ENLACE INFERIOR */
 .switch-auth {
   margin-top: 25px;
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 0.95rem;
+  color: #64748b;
 }
 
 .switch-auth a {
   color: var(--color-acento);
   font-weight: 700;
-}
-
-.forgot-password {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.forgot-password a {
-  font-size: 0.9em;
-  color: #007bff;
   text-decoration: none;
 }
 
-.forgot-password a:hover {
+.switch-auth a:hover {
   text-decoration: underline;
 }
 
-.alert {
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 15px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.alert.error {
-  background-color: #f8d7da;
-  color: #842029;
-  border: 1px solid #f5c2c7;
-}
-
-.alert.success {
-  background-color: #d1e7dd;
-  color: #0f5132;
-  border: 1px solid #badbcc;
-}
-
-/* Contenedor del checkbox */
-.form-check {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-/* El propio checkbox */
-.form-check-input {
-  margin-right: 8px;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-  accent-color: var(--color-acento); /* ✅ color personalizado del tema */
-}
-
-/* El texto del label */
-.form-check-label {
-  font-size: 0.9rem;
-  color: #555;
-  cursor: pointer;
-  user-select: none;
-}
-
-.form-check-label:hover {
-  color: var(--color-acento);
+/* Responsivo para móviles */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 30px 20px;
+    box-shadow: none; /* En móvil queda más limpio sin sombra a veces */
+    background-color: transparent; /* Opcional: que se funda con el fondo */
+  }
+  .auth-container {
+    align-items: flex-start; /* Subir el formulario arriba en móviles */
+    padding-top: 40px;
+  }
 }

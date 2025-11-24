@@ -1,62 +1,87 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router'; 
-import { signIn } from '../../../core/services/auth.service';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 1. Importamos ChangeDetectorRef
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { supabase } from '../../../core/services/supabase.config';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule], 
+  imports: [RouterLink, FormsModule],
   templateUrl: './login.html',
-  styleUrl: './login.css'   
+  styleUrl: './login.css'
 })
-export class Login {
+export class Login implements OnInit {
   email = '';
   password = '';
   rememberMe = false;
-
+  loading = false;
   errores: string[] = [];
 
-  constructor(private router: Router) {
-    // Al cargar el componente, recuperar datos guardados
+  // 2. Inyectamos el detector de cambios (cd)
+  constructor(
+    private router: Router,
+    private cd: ChangeDetectorRef 
+  ) {}
+
+  ngOnInit() {
     const savedEmail = localStorage.getItem('rememberEmail');
-    const savedPassword = localStorage.getItem('rememberPassword');
-    if (savedEmail && savedPassword) {
+    if (savedEmail) {
       this.email = savedEmail;
-      this.password = savedPassword;
       this.rememberMe = true;
     }
   }
 
   async login() {
-    this.errores = []; 
+    this.errores = [];
 
-    if (!this.email) {
-      this.errores.push('Debes introducir tu correo electrónico.');
-    }
-    if (!this.password) {
-      this.errores.push('Debes introducir tu contraseña.');
-    }
-    if (this.errores.length > 0) {
+    if (!this.email || !this.password) {
+      this.errores.push('Por favor, rellena todos los campos.');
       return;
     }
 
-    const { data, error } = await signIn(this.email, this.password);
+    try {
+      this.loading = true;
+      
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: this.email,
+        password: this.password,
+      });
 
-    if (error) {
-      this.errores.push('Correo o contraseña incorrectos.');
-    } else {
-      // Guardar datos si el checkbox está marcado
-      if (this.rememberMe) {
-        localStorage.setItem('rememberEmail', this.email);
-        localStorage.setItem('rememberPassword', this.password);
-      } else {
-        localStorage.removeItem('rememberEmail');
-        localStorage.removeItem('rememberPassword');
+      if (error) {
+        // Apagamos la carga
+        this.loading = false;
+        
+        console.error('Error de Supabase:', error.message);
+
+        if (error.message.includes('Invalid login credentials')) {
+          this.errores.push('El correo o la contraseña son incorrectos.');
+        } else if (error.message.includes('Email not confirmed')) {
+          this.errores.push('Debes confirmar tu correo electrónico antes de entrar.');
+        } else {
+          this.errores.push('Error al iniciar sesión: ' + error.message);
+        }
+        
+        // Forzamos a Angular a actualizar la pantalla
+        this.cd.detectChanges();
+        
+        return;
       }
 
-      // Redirigir directamente al dashboard
-      setTimeout(() => this.router.navigate(['/dashboard']), 2000);
+      // Si llegamos aquí, es éxito
+      if (this.rememberMe) {
+        localStorage.setItem('rememberEmail', this.email);
+      } else {
+        localStorage.removeItem('rememberEmail');
+      }
+
+      window.location.href = '/home';
+
+    } catch (err) {
+      this.loading = false;
+      this.errores.push('Ocurrió un error inesperado.');
+      console.error(err);
+      
+      this.cd.detectChanges();
     }
   }
 }
