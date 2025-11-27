@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router'
 @Component({
   selector: 'app-how-to-play',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './how-to-play.html',
   styleUrl: './how-to-play.css',
 })
