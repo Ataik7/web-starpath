@@ -93,3 +93,10 @@ src/app/
 ├── pages/        # Vistas principales (Home, Login, Register, News...)
 ├── services/     # Lógica de negocio y comunicación de datos (Auth, Supabase...)
 └── models/       # Interfaces y tipos TypeScript (User, Article...)
+```
+## 👥 Autores
+
+Este proyecto ha sido desarrollado con ❤️ por:
+
+* **Iván Gastineau** - *Arquitectura Frontend, UI/UX (CSS) & Integración.*
+* **Pablo Nicolás** - *Lógica Backend (Supabase), Gestión de Datos & Estructura.*
