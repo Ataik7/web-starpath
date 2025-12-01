@@ -1,3 +1,15 @@
+/**
+ * Hoja de estilos de la Página de Política de Privacidad.
+ *
+ * Define un diseño limpio y legible, similar a un documento impreso,
+ * para facilitar la lectura de la información legal. Utiliza un contenedor
+ * blanco centrado con sombras suaves sobre el fondo gris de la aplicación.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+ /* --- Contenedor --- */
 .privacy-container {
   max-width: 800px;
   margin: 40px auto;
@@ -11,6 +23,7 @@
   color: #444;
 }
 
+/* --- Título principal --- */
 h1 {
   color: var(--color-primario);
   font-family: 'Lato', sans-serif;
@@ -20,12 +33,16 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* --- Subtítulos de sección --- */
 h3 {
   color: var(--color-secundario);
   margin-top: 30px;
   font-weight: 700;
 }
 
+/* --- Párrafos --- */
 p {
   margin-bottom: 15px;
 }
+
+

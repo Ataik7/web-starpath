@@ -1,4 +1,15 @@
-/* Contenedor principal */
+/**
+ * Hoja de estilos de la Página de Características.
+ *
+ * Define un diseño de rejilla (Grid) responsiva para mostrar las tarjetas de características.
+ * Destaca por el uso de iconos grandes (emojis estilizados), sombras suaves y
+ * efectos de elevación (transform: translateY) al pasar el ratón.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+/* --- Contenedor principal --- */
 .features-container {
   padding: 40px 20px;
   max-width: 1200px;
@@ -6,7 +17,7 @@
   min-height: 80vh;
 }
 
-/* Cabecera */
+/* --- Cabecera --- */
 .features-header {
   text-align: center;
   margin-bottom: 60px;
@@ -28,7 +39,7 @@
   font-weight: 300;
 }
 
-/* La Rejilla (Grid) */
+/* --- La Rejilla (Grid) --- */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -36,7 +47,7 @@
   margin-bottom: 60px;
 }
 
-/* Las Tarjetas Individuales */
+/* --- Las Tarjetas Individuales --- */
 .feature-card {
   background: white;
   padding: 40px 30px;
@@ -53,6 +64,7 @@
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
+/* --- Iconos y tipografía --- */
 .icon {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -79,7 +91,7 @@
   line-height: 1.6;
   font-size: 1rem;
 }
-
+/* --- Llamada a la acción (CTA) --- */
 .cta-section {
   text-align: center;
   background-color: #eef2f5;
@@ -95,6 +107,7 @@
   margin-bottom: 20px;
 }
 
+/* --- Botón principal --- */
 .btn-primary {
   font-family: 'PixelFont', monospace; 
   background-color: var(--color-acento);

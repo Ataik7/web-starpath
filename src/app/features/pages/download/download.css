@@ -1,3 +1,15 @@
+/**
+ * Hoja de estilos de la Página de Descargas.
+ *
+ * Define la presentación de las opciones de descarga para diferentes plataformas
+ * (Windows, Mac, Linux). Utiliza un diseño de tarjetas (Cards) con efectos hover
+ * y una sección final de requisitos del sistema clara y legible.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+/* --- Contenedor principal --- */
 .download-container {
   padding: 40px 20px;
   max-width: 1000px;
@@ -6,6 +18,7 @@
   min-height: 80vh;
 }
 
+/* --- Cabecera --- */
 .download-hero h1 {
   font-family: 'Press Start 2P', cursive;
   color: var(--color-primario);
@@ -19,7 +32,7 @@
   margin-bottom: 50px;
 }
 
-/* Rejilla de tarjetas */
+/* --- Rejilla de tarjetas --- */
 .platforms-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -48,7 +61,7 @@
   color: var(--color-primario);
 }
 
-/* Botón de descarga específico */
+/* --- Botón de descarga específico --- */
 .btn-download {
   background-color: var(--color-primario);
   color: white;
@@ -67,7 +80,7 @@
   background-color: var(--color-acento);
 }
 
-/* Sección de requisitos */
+/* --- Sección de requisitos --- */
 .requirements {
   background-color: #eef2f5;
   padding: 30px;

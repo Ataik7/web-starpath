@@ -1,3 +1,18 @@
+/**
+ * Hoja de estilos de la Página de Contacto.
+ *
+ * Define un diseño de dos columnas para pantallas grandes:
+ * - Izquierda: Información de contacto y redes sociales.
+ * - Derecha: Formulario de envío de mensajes.
+ *
+ * Incluye estilos para los campos de entrada (inputs), áreas de texto y
+ * botones, manteniendo la coherencia con el resto de la aplicación.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+ /* --- Contenedor principal --- */
 .contact-container {
   padding: 40px 20px;
   max-width: 1000px;
@@ -5,7 +20,7 @@
   min-height: 80vh;
 }
 
-/* Cabecera */
+/* --- Cabecera --- */
 .contact-header {
   text-align: center;
   margin-bottom: 50px;
@@ -25,7 +40,7 @@
   font-size: 1.1rem;
 }
 
-/* Arquitectura principal (Dos columnas) */
+/* --- Arquitectura principal (Dos columnas) --- */
 .contact-wrapper {
   display: grid;
   grid-template-columns: 1fr 1.5fr; 
@@ -112,6 +127,7 @@
   outline: none;
 }
 
+/* --- Botón de envío --- */
 .btn-submit {
   width: 100%;
   padding: 15px;
@@ -138,6 +154,7 @@
   box-shadow: none;       
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .contact-wrapper {
     grid-template-columns: 1fr; 
