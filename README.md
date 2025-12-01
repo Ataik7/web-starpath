@@ -57,7 +57,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/Ataik7/web-starpath.git](https://github.com/Ataik7/web-starpath.git)
+    git clone https://github.com/Ataik7/web-starpath.git
     cd web-starpath
     ```
 
@@ -93,3 +93,10 @@ src/app/
 ├── pages/        # Vistas principales (Home, Login, Register, News...)
 ├── services/     # Lógica de negocio y comunicación de datos (Auth, Supabase...)
 └── models/       # Interfaces y tipos TypeScript (User, Article...)
+```
+## 👥 Autores
+
+Este proyecto ha sido desarrollado con ❤️ por:
+
+* **Iván Gastineau** - *Arquitectura Frontend, UI/UX (CSS) & Integración de componentes.*
+* **Pablo Nicolás** - *Lógica Backend (Supabase), Gestión de Datos & Estructura.*
