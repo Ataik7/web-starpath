@@ -19,7 +19,7 @@
   text-align: center;
   
   /* Fondo: Un degradado azul oscuro sobre una imagen */
-  background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.8)), url('https://picsum.photos/id/122/1920/1080');
+  background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.8)), url('https://images7.alphacoders.com/131/thumb-1920-1310563.jpg');
   background-size: cover;
   background-position: center;
   color: var(--color-texto-principal);
