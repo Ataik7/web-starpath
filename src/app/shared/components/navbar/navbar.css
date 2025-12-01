@@ -28,10 +28,11 @@
 
 /* --- LOGO --- */
 .logo-link {
-  color: var(--color-acento);
+  font-size: 1.25rem;
   font-weight: bold;
+  color: white;
   text-decoration: none;
-  font-size: 1.5rem; /* AUMENTADO: Para que destaque sobre los enlaces */
+  font-size: 1.2rem; 
   text-shadow: 2px 2px 0px #000; 
 }
 
@@ -48,9 +49,9 @@
   display: block;
   color: var(--color-texto-principal);
   text-decoration: none;
-  padding: 10px 15px; /* Ajusté un poco el padding horizontal */
+  padding: 10px;
   transition: color 0.3s;
-  font-size: 1.25rem; /* AUMENTADO: de 1.0rem a 1.25rem */
+  font-size: 1.0rem; 
   line-height: 1.5;
 }
 

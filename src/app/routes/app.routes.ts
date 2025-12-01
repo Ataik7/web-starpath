@@ -9,7 +9,6 @@ import { Game } from '../features/pages/game/game';
 import { Login } from '../features/pages/login/login';
 import { Register } from '../features/pages/register/register';
 import { Privacy } from '../features/pages/privacy/privacy';
-import { Dashboard } from '../features/pages/dashboard/dashboard';
 import { AuthGuard } from '../core/services/auth.guard';
 import { ForgotPassword } from '../features/pages/forgot-password/forgot-password';
 import { ResetPassword } from '../features/pages/reset-password/reset-password';
@@ -27,7 +26,6 @@ export const routes: Routes = [
   { path: 'login', component: Login }, // Iniciar sesion
   { path: 'register', component: Register }, // Registro
   { path: 'privacy', component: Privacy }, // Política de privacidad
-  { path: 'dashboard', component: Dashboard, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPassword },
   { path: 'reset-password', component: ResetPassword },
 
