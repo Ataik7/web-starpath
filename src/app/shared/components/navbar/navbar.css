@@ -10,26 +10,24 @@
  * @version 1.1
  */
 
-/* IMPORTAMOS LA NUEVA FUENTE 'RAJDHANI' */
+/* IMPORTAMOS RAJDHANI' */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
 
 /* ---  Contenedor principal (la barra) --- */
 .navbar {
-  /* Cambio: Usamos Rajdhani como fuente principal */
+
   font-family: 'Rajdhani', sans-serif; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   
   /* Cambio: Efecto Glassmorphism (Cristal) */
-  /* Usamos un color oscuro semi-transparente en lugar del sólido */
-  background-color: rgba(10, 25, 47, 0.85); /* Ajusta este RGB a tu variable si prefieres */
-  backdrop-filter: blur(10px); /* Esto desenfoca el fondo detrás de la barra */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Una línea sutil abajo */
-
+  background-color: rgba(10, 25, 47, 0.85); 
+  backdrop-filter: blur(10px); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
   padding: 1rem 2rem; 
   color: var(--color-texto-principal);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Sombra más suave y difusa */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); 
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -38,10 +36,10 @@
 /* --- LOGO --- */
 .logo-link {
   color: var(--color-acento);
-  font-weight: 700; /* Más grueso para destacar */
+  font-weight: 700; 
   text-decoration: none;
-  font-size: 1.8rem; /* Logo más grande */
-  text-shadow: 0px 0px 10px rgba(29, 89, 252, 0.5); /* Glow sutil en vez de sombra dura */
+  font-size: 1.8rem; 
+  text-shadow: 0px 0px 10px rgba(29, 89, 252, 0.5); 
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -50,22 +48,22 @@
 .nav-links {
   list-style-type: none;
   display: flex;
-  gap: 30px; /* Un poco más de espacio entre items */
+  gap: 30px; 
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
   display: block;
-  color: var(--color-texto-principal); /* Asumo que es blanco o gris claro */
+  color: var(--color-texto-principal); 
   text-decoration: none;
-  padding: 5px 0; /* Quitamos padding lateral para la animación de borde */
+  padding: 5px 0; 
   transition: all 0.3s ease;
-  font-size: 1.25rem; /* Tamaño aumentado como pediste */
+  font-size: 1.25rem; 
   font-weight: 600;
-  text-transform: uppercase; /* Mayúsculas quedan mejor en juegos */
+  text-transform: uppercase; 
   letter-spacing: 1px;
-  position: relative; /* Necesario para el efecto de hover */
+  position: relative; 
 }
 
 /* Animación de la línea debajo al hacer hover */
@@ -92,17 +90,15 @@
 
 .active {
   color: var(--color-acento) !important;
-  /* Eliminamos el borde antiguo porque ahora usamos el ::after si quisieras, 
-     o dejamos este estilo simple */
 }
-/* Para mantener la línea fija en el activo: */
+
 .active::after {
     width: 100% !important; 
 }
 
 
-/* --- BOTONES (Estilo Pixel Art 3D -> Adaptado a Tech) --- */
-/* Mantengo tu estructura pero ajusto la fuente */
+/* --- BOTONES (Adaptado a Tech) --- */
+
 
 .auth-buttons {
   display: flex;
@@ -112,15 +108,15 @@
 
 /* Base común para ambos botones */
 .btn-login, .btn-register {
-  font-family: 'Rajdhani', sans-serif; /* Actualizada fuente */
+  font-family: 'Rajdhani', sans-serif; 
   font-weight: 700;
-  font-size: 1rem; /* Un pelín más grande para leerse bien */
+  font-size: 1rem; 
   padding: 10px 24px; 
   text-transform: uppercase;
   border-radius: 4px; 
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid; /* Borde más fino es más elegante */
+  border: 1px solid;
   letter-spacing: 2px;
   position: relative;
   top: 0;
@@ -131,7 +127,7 @@
   background-color: transparent; 
   border-color: rgba(255, 255, 255, 0.5);
   color: #ffffff;
-  box-shadow: none; /* Quitamos la sombra dura para un look más limpio */
+  box-shadow: none; 
 }
 
 .btn-login:hover {
@@ -150,7 +146,7 @@
   background-color: var(--color-acento); 
   border-color: var(--color-acento);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(29, 89, 252, 0.4); /* Glow azul */
+  box-shadow: 0 4px 15px rgba(29, 89, 252, 0.4); 
 }
 
 .btn-register:hover {
@@ -162,10 +158,6 @@
 .btn-register:active {
   transform: translateY(1px); 
 }
-
-/* --- SECCIÓN DE USUARIO (HUD) --- */
-/* Solo se ve cuando user existe */
-/* ... (El resto del CSS del usuario lo puedes dejar igual, solo cambiará la fuente automáticamente por la herencia en .navbar) ... */
 
 /* --- SECCIÓN DE USUARIO (HUD) --- */
 /* Solo se ve cuando user existe */
