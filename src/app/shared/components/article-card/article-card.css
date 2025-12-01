@@ -1,3 +1,14 @@
+/**
+ * Hoja de estilos del componente ArticleCard.
+ *
+ * Define la apariencia de las tarjetas de noticias, incluyendo bordes redondeados,
+ * sombras suaves para dar profundidad y efectos interactivos de elevación.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+ /* --- Contenedor de la tarjeta --- */
 .card {
   background: white;
   border-radius: 8px; 
@@ -9,18 +20,20 @@
   flex-direction: column;
 }
 
-/* Efecto "levantarse" al pasar el ratón */
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+/* --- Imagen destacada --- */
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover; 
 }
 
+/* --- Contenido (texto) --- */
 .card-content {
   padding: 15px;
   flex-grow: 1;

@@ -3,6 +3,19 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { supabase } from '../../../core/services/supabase.config';
 
+/**
+ * Componente de la Página de Inicio de Sesión (Login).
+ *
+ * Permite a los usuarios autenticarse en la aplicación utilizando sus credenciales
+ * (correo electrónico y contraseña). Gestiona la comunicación con Supabase para
+ * validar la sesión y redirige al usuario a la página principal en caso de éxito.
+ *
+ * También incluye la funcionalidad de "Recuérdame" para guardar el correo
+ * electrónico en el almacenamiento local del navegador.
+ *
+ * @author Iván Gastineau y Pablo Nicolás
+ * @version 1.0
+ */
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,6 +36,14 @@ export class Login implements OnInit {
     private cd: ChangeDetectorRef 
   ) {}
 
+  
+  /**
+   * Método del ciclo de vida de Angular.
+   * Se ejecuta al iniciar el componente.
+   *
+   * Comprueba si hay un correo electrónico guardado en localStorage
+   * (funcionalidad "Recuérdame") y, si existe, rellena el campo y marca el checkbox.
+   */
   ngOnInit() {
     const savedEmail = localStorage.getItem('rememberEmail');
     if (savedEmail) {
@@ -31,6 +52,17 @@ export class Login implements OnInit {
     }
   }
 
+   /**
+   * Método principal de inicio de sesión.
+   *
+   * 1. Reinicia el estado de errores.
+   * 2. Valida que los campos obligatorios no estén vacíos.
+   * 3. Realiza la llamada asíncrona a Supabase para iniciar sesión.
+   * 4. Gestiona los errores devueltos por Supabase.
+   * 5. Si es exitoso:
+   * - Guarda o borra el email en localStorage según el checkbox "Recuérdame".
+   * - Redirige al usuario a la página de inicio.
+   */
   async login() {
     this.errores = [];
 

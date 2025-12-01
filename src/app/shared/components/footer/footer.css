@@ -1,3 +1,14 @@
+/**
+ * Hoja de estilos del componente Footer.
+ *
+ * Define el diseño del pie de página, asegurando que se mantenga al final
+ * del contenido visual y siga la coherencia estética de la aplicación.
+ *
+ * @author Iván Gastineau
+ * @version 1.0
+ */
+
+ /* --- Contenedor principal (el footer) --- */
 .footer {
   background-color: var(--color-secundario);
   color: var(--color-texto-principal);
@@ -13,6 +24,7 @@
   opacity: 0.8;
 }
 
+/* Enlaces del footer */
 .footer-links {
   display: flex;            
   justify-content: center;  
