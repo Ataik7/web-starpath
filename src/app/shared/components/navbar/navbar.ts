@@ -2,6 +2,16 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 1. IMPO
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { supabase } from '../../../core/services/supabase.config'; 
 
+/**
+ * Componente de la Barra de Navegación (Navbar)
+ *
+ * Maneja la navegación principal de la aplicación, muestra los enlaces
+ * a las diferentes secciones y gestiona la visualización del estado
+ * del usuario (logueado/no logueado).
+ *
+ * @author Iván Gastineau y Pablo Nicolás
+ * @version 1.0
+ */
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -15,6 +25,11 @@ export class Navbar implements OnInit {
   // 2. Inyectar el detector de cambios (cd)
   constructor(private cd: ChangeDetectorRef) {}
 
+  /**
+   * Método del ciclo de vida de Angular.
+   * Se ejecuta al iniciar el componente.
+   * Configura la suscripción a los cambios de autenticación de Supabase.
+   */
   ngOnInit() {
     // Comprobación inicial
     this.getUser();
@@ -34,12 +49,20 @@ export class Navbar implements OnInit {
     });
   }
 
+  /**
+   * Método asíncrono para obtener el usuario actual.
+   * Consulta a Supabase y actualiza la variable local 'user'.
+   */
   async getUser() {
     const { data: { user } } = await supabase.auth.getUser();
     this.user = user;
     this.cd.detectChanges(); // Actualizamos también aquí por si acaso
   }
 
+  /**
+   * Método para cerrar la sesión del usuario.
+   * Llama a Supabase para desconectar y redirige al login.
+   */
   async logout() {
     await supabase.auth.signOut();
     // El onAuthStateChange detectará el 'SIGNED_OUT' y actualizará la vista solo

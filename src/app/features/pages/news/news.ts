@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleCard } from '../../../shared/components/article-card/article-card';
 import { Article } from '../../../models/article.model';
 import { MockDataService } from '../../../core/services/mock-data';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-news',
