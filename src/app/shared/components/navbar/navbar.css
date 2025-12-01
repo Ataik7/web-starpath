@@ -31,7 +31,7 @@
   color: var(--color-acento);
   font-weight: bold;
   text-decoration: none;
-  font-size: 1.2rem; 
+  font-size: 1.5rem; /* AUMENTADO: Para que destaque sobre los enlaces */
   text-shadow: 2px 2px 0px #000; 
 }
 
@@ -48,9 +48,9 @@
   display: block;
   color: var(--color-texto-principal);
   text-decoration: none;
-  padding: 10px;
+  padding: 10px 15px; /* Ajusté un poco el padding horizontal */
   transition: color 0.3s;
-  font-size: 1.0rem; 
+  font-size: 1.25rem; /* AUMENTADO: de 1.0rem a 1.25rem */
   line-height: 1.5;
 }
 
