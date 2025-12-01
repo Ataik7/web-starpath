@@ -98,5 +98,5 @@ src/app/
 
 Este proyecto ha sido desarrollado con ❤️ por:
 
-* **Iván Gastineau** - *Arquitectura Frontend, UI/UX (CSS) & Integración.*
+* **Iván Gastineau** - *Arquitectura Frontend, UI/UX (CSS) & Integración de componentes.*
 * **Pablo Nicolás** - *Lógica Backend (Supabase), Gestión de Datos & Estructura.*
