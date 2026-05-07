@@ -1,5 +1,5 @@
 @if (article) {
-  <article class="card" (click)="onCardClick()" style="cursor: pointer;">
+  <article class="card" (click)="onCardClick()">
     <img [src]="article.imageUrl" [alt]="article.title">
     <div class="card-content">
       <h3>{{ article.title }}</h3>
