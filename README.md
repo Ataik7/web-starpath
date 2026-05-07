@@ -4,7 +4,7 @@
 
   **Portal oficial, gestor de cuentas y lanzador para el universo Starpath.**
 
-  [![Angular](https://img.shields.io/badge/Angular-17%2B-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.io/)
+  [![Angular](https://img.shields.io/badge/Angular-21%2B-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.io/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
   [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
   [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
@@ -35,7 +35,7 @@ El proyecto ha sido construido utilizando las últimas prácticas de desarrollo 
 
 | Categoría | Tecnología |
 | :--- | :--- |
-| **Framework** | Angular 17+ (Standalone Components) |
+| **Framework** | Angular 21+ (Standalone Components) |
 | **Lenguaje** | TypeScript |
 | **Estilos** | CSS3 (Variables, Flexbox, Grid), Google Fonts (Lato, Press Start 2P) |
 | **Routing** | Angular Router |
@@ -51,7 +51,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local:
 
 * **Node.js:** v18 o superior
 * **npm:** v9 o superior
-* **Angular CLI:** v17 o superior
+* **Angular CLI:** v21 o superior
 
 ### 🔧 Pasos de Instalación
 
@@ -89,10 +89,14 @@ Sigue estos pasos para levantar el proyecto en tu entorno local:
 
 ```text
 src/app/
-├── components/   # Componentes reutilizables (Navbar, Footer, ArticleCard...)
-├── pages/        # Vistas principales (Home, Login, Register, News...)
-├── services/     # Lógica de negocio y comunicación de datos (Auth, Supabase...)
-└── models/       # Interfaces y tipos TypeScript (User, Article...)
+├── core/                  # Lógica central (servicios, guards, configuración)
+│   └── services/          # AuthService, MockDataService, AuthGuard, supabase.config
+├── features/              # Páginas de la aplicación
+│   └── pages/             # Home, Login, Register, News, Contact, Download...
+├── shared/                # Componentes reutilizables
+│   └── components/        # Navbar, Footer, ArticleCard
+├── models/                # Interfaces TypeScript (Article...)
+└── routes/                # Configuración de Angular Router
 ```
 ## 👥 Autores
 
