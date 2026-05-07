@@ -36,8 +36,6 @@ export class Navbar implements OnInit {
 
     // Se escuchan los cambios del LOGIN/LOGOUT
     supabase.auth.onAuthStateChange((event, session) => {
-      console.log('Navbar detectó evento:', event); // Para que veas que funciona
-      
       if (session) {
         this.user = session.user;
       } else {
