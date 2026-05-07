@@ -12,9 +12,10 @@ import { MockDataService } from '../../../core/services/mock-data';
  * 1. Solicita los datos al servicio de datos (MockDataService).
  * 2. Almacena la lista de artículos.
  * 3. Pasa cada artículo al componente hijo 'ArticleCard' para su visualización.
+ * 4. Escucha el evento (@Output) de ArticleCard y gestiona el artículo seleccionado.
  *
  * @author Iván Gastineau
- * @version 1.0
+ * @version 1.1
  */
 @Component({
   selector: 'app-news',
@@ -32,6 +33,11 @@ export class News implements OnInit {
   /** Artículo seleccionado al hacer clic en una tarjeta. */
   selectedArticle: Article | null = null;
 
+  /**
+   * Método del ciclo de vida de Angular.
+   * Se ejecuta al iniciar el componente.
+   * Carga los artículos desde el servicio de datos.
+   */
   ngOnInit() {
     this.articles = this.dataService.getNews();
   }
