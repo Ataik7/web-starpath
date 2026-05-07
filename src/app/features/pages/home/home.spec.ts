@@ -10,8 +10,7 @@ describe('Home', () => {
     await TestBed.configureTestingModule({
       imports: [Home],
       providers: [provideRouter([])]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Home);
     component = fixture.componentInstance;
@@ -20,5 +19,10 @@ describe('Home', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('debería renderizar el componente en el DOM', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled).toBeTruthy();
   });
 });

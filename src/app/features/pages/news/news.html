@@ -3,7 +3,7 @@
 
   <div class="grid">
     @for (item of articles; track item.id) {
-      <app-article-card [article]="item"></app-article-card>
+      <app-article-card [article]="item" (cardClick)="onArticleSelected($event)"></app-article-card>
     } @empty {
       <p>No hay noticias para mostrar.</p>
     }

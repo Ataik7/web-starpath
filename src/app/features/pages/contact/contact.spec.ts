@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Contact } from './contact';
-import { FormsModule } from '@angular/forms'; // Necesario para el formulario
+import { FormsModule } from '@angular/forms';
 
 describe('Contact', () => {
   let component: Contact;
@@ -8,10 +8,9 @@ describe('Contact', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Contact, FormsModule] // Importamos FormsModule para que el test entienda el HTML
-    })
-    .compileComponents();
-    
+      imports: [Contact, FormsModule]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(Contact);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -20,5 +19,19 @@ describe('Contact', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
 
+  it('debería mostrar alerta de error si el formulario es inválido', () => {
+    spyOn(window, 'alert');
+    const formMock = { valid: false, reset: jasmine.createSpy('reset') };
+    component.sendMessage(formMock);
+    expect(window.alert).toHaveBeenCalledWith('Por favor, rellena todos los campos correctamente.');
+  });
+
+  it('debería mostrar alerta de éxito y limpiar el formulario si es válido', () => {
+    spyOn(window, 'alert');
+    const formMock = { valid: true, reset: jasmine.createSpy('reset') };
+    component.sendMessage(formMock);
+    expect(window.alert).toHaveBeenCalledWith('¡Mensaje enviado correctamente! Gracias por contactar con Starpath.');
+    expect(formMock.reset).toHaveBeenCalled();
+  });
+});

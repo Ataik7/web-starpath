@@ -29,8 +29,19 @@ export class News implements OnInit {
 
   constructor(private dataService: MockDataService) {}
 
+  /** Artículo seleccionado al hacer clic en una tarjeta. */
+  selectedArticle: Article | null = null;
+
   ngOnInit() {
     this.articles = this.dataService.getNews();
-    console.log('MIS NOTICIAS SON:', this.articles);
+  }
+
+  /**
+   * Gestiona el evento @Output emitido por ArticleCard.
+   * Almacena el artículo seleccionado para mostrarlo en detalle.
+   * @param article - El artículo sobre el que se hizo clic.
+   */
+  onArticleSelected(article: Article): void {
+    this.selectedArticle = article;
   }
 }

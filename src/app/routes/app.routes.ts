@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'how-to-play', component: HowToPlay }, // Como jugar
   { path: 'contact', component: Contact }, // Para el soporte por ejemplo
   { path: 'download', component: Download }, // Descargas
-  { path: 'game', component: Game }, // Probar el juego
+  { path: 'game', component: Game, canActivate: [AuthGuard] }, // Probar el juego (requiere login)
   { path: 'login', component: Login }, // Iniciar sesion
   { path: 'register', component: Register }, // Registro
   { path: 'privacy', component: Privacy }, // Política de privacidad
