@@ -41,3 +41,92 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* === ACCESIBILIDAD GLOBAL === */
+
+/* Skip link - permite saltar al contenido principal con teclado */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--color-acento);
+  color: #fff;
+  padding: 10px 20px;
+  z-index: 9999;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Estilos de foco visibles para navegación por teclado */
+*:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Eliminamos outline por defecto solo cuando hay :focus-visible */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Clase para ocultar visualmente pero mantener accesible para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Indicador de campo requerido */
+.required {
+  color: #e74c3c;
+  margin-left: 3px;
+  font-weight: bold;
+}
+
+/* Texto de ayuda debajo de los campos */
+.field-hint {
+  display: block;
+  font-size: 0.82rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Contenedor para input de contraseña con botón mostrar/ocultar */
+.input-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-password-wrapper input {
+  flex: 1;
+  padding-right: 48px !important;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  line-height: normal;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  color: #666;
+  line-height: 1;
+}

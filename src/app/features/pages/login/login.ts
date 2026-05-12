@@ -29,6 +29,13 @@ export class Login implements OnInit {
   rememberMe = false;
   loading = false;
   errores: string[] = [];
+  /** Controla si la contraseña es visible */
+  showPassword = false;
+
+  /** Alterna la visibilidad de la contraseña */
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   // 2. Inyectamos el detector de cambios (cd)
   constructor(

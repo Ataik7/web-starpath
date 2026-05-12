@@ -1,11 +1,39 @@
 <div class="news-container">
   <h2>Últimas Noticias</h2>
 
-  <div class="grid">
-    @for (item of articles; track item.id) {
+  <!-- Buscador de noticias -->
+  <div class="search-bar" role="search">
+    <label for="news-search" class="visually-hidden">Buscar noticias</label>
+    <input
+      type="search"
+      id="news-search"
+      name="news-search"
+      [(ngModel)]="searchQuery"
+      placeholder="🔍 Buscar noticias..."
+      aria-label="Buscar noticias por título o subtítulo"
+      aria-controls="news-grid">
+    @if (searchQuery) {
+      <button
+        class="btn-clear-search"
+        (click)="searchQuery = ''"
+        aria-label="Limpiar búsqueda">
+        ✕
+      </button>
+    }
+  </div>
+
+  <!-- Resultado de búsqueda -->
+  @if (searchQuery) {
+    <p class="search-results" aria-live="polite" role="status">
+      {{ filteredArticles.length }} resultado(s) para "<strong>{{ searchQuery }}</strong>"
+    </p>
+  }
+
+  <div class="grid" id="news-grid" aria-label="Lista de noticias">
+    @for (item of filteredArticles; track item.id) {
       <app-article-card [article]="item" (cardClick)="onArticleSelected($event)"></app-article-card>
     } @empty {
-      <p>No hay noticias para mostrar.</p>
+      <p role="status" aria-live="polite">No hay noticias que coincidan con tu búsqueda.</p>
     }
   </div>
 </div>

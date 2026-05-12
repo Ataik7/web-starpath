@@ -31,5 +31,54 @@ h2 {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px; 
+  gap: 30px;
+}
+
+/* === BUSCADOR === */
+.search-bar {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 2px solid var(--color-acento);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.search-bar input:focus {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #888;
+  padding: 4px;
+}
+
+.btn-clear-search:hover {
+  color: #e74c3c;
+}
+
+.search-results {
+  text-align: center;
+  color: var(--color-secundario);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
 }

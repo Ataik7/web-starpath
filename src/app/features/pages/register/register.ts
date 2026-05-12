@@ -24,13 +24,20 @@ import { supabase } from '../../../core/services/supabase.config';
   styleUrl: './register.css'
 })
 export class Register {
-  username = ''; 
+  username = '';
   email = '';
   password = '';
-  
+
   loading = false;
   errores: string[] = [];
   successMessage: string | null = null;
+  /** Controla si la contraseña es visible */
+  showPassword = false;
+
+  /** Alterna la visibilidad de la contraseña */
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 
   // 4. Inyectamos el detector de cambios (cd) y el router
   constructor(

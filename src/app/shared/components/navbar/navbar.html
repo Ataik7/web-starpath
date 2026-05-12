@@ -1,39 +1,50 @@
-<nav class="navbar">
-  <div class="logo">
-    <a routerLink="/" class="logo-link">STARPATH</a>
-  </div>
+<header>
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="logo">
+      <a routerLink="/" class="logo-link" aria-label="Starpath - Ir al inicio">STARPATH</a>
+    </div>
 
-  <ul class="nav-links">
-    <li><a routerLink="/feature" routerLinkActive="active">Características</a></li>
-    <li><a routerLink="/news" routerLinkActive="active">Noticias</a></li>
-    <li><a routerLink="/how-to-play" routerLinkActive="active">Cómo jugar</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
-    <li><a routerLink="/download" routerLinkActive="active">Descargas</a></li>
-    <li><a routerLink="/game" routerLinkActive="active">Probar el juego</a></li>
-  </ul>
+    <!-- Botón hamburguesa para móvil -->
+    <button
+      class="hamburger"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="nav-menu"
+      aria-label="Abrir menú de navegación">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-  @if (user) {
-    
-    <div class="user-info">
-      <span class="user-level">LVL 1</span>
-      
-      <div class="user-profile">
-        <span class="username">{{ user.email.split('@')[0] }}</span>
-        
-        <div class="avatar">
-          {{ user.email.charAt(0).toUpperCase() }}
+    <ul class="nav-links" id="nav-menu" [class.open]="menuOpen" role="list">
+      <li><a routerLink="/feature" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}" aria-label="Características del juego" (click)="closeMenu()">Características</a></li>
+      <li><a routerLink="/news" routerLinkActive="active" aria-label="Últimas noticias" (click)="closeMenu()">Noticias</a></li>
+      <li><a routerLink="/how-to-play" routerLinkActive="active" aria-label="Cómo jugar" (click)="closeMenu()">Cómo jugar</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" aria-label="Contacto y soporte" (click)="closeMenu()">Contacto</a></li>
+      <li><a routerLink="/download" routerLinkActive="active" aria-label="Descargar el juego" (click)="closeMenu()">Descargas</a></li>
+      <li><a routerLink="/game" routerLinkActive="active" aria-label="Probar el juego en el navegador" (click)="closeMenu()">Probar el juego</a></li>
+    </ul>
+
+    @if (user) {
+      <div class="user-info" aria-label="Información del usuario">
+        <span class="user-level" aria-label="Nivel 1">LVL 1</span>
+
+        <div class="user-profile">
+          <span class="username" aria-label="Nombre de usuario: {{ user.email.split('@')[0] }}">{{ user.email.split('@')[0] }}</span>
+          <div class="avatar" aria-hidden="true" title="{{ user.email.split('@')[0] }}">
+            {{ user.email.charAt(0).toUpperCase() }}
+          </div>
         </div>
+
+        <button class="btn-logout" (click)="logout()" aria-label="Cerrar sesión">
+          <span aria-hidden="true">✕</span>
+        </button>
       </div>
-      
-      <button class="btn-logout" (click)="logout()" title="Cerrar sesión">X</button>
-    </div>
-
-  } @else {
-    
-    <div class="auth-buttons">
-      <button class="btn-login" routerLink="/login">Iniciar sesión</button>
-      <button class="btn-register" routerLink="/register">Registrarse</button>
-    </div>
-
-  }
-</nav>
+    } @else {
+      <div class="auth-buttons">
+        <button class="btn-login" routerLink="/login" aria-label="Iniciar sesión en tu cuenta">Iniciar sesión</button>
+        <button class="btn-register" routerLink="/register" aria-label="Crear una cuenta nueva">Registrarse</button>
+      </div>
+    }
+  </nav>
+</header>

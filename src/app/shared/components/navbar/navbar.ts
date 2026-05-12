@@ -21,9 +21,21 @@ import { supabase } from '../../../core/services/supabase.config';
 })
 export class Navbar implements OnInit {
   user: any = null;
+  /** Controla si el menú móvil está abierto */
+  menuOpen = false;
 
   // 2. Inyectar el detector de cambios (cd)
   constructor(private cd: ChangeDetectorRef) {}
+
+  /** Abre o cierra el menú hamburguesa en móvil */
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  /** Cierra el menú al hacer clic en un enlace */
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
 
   /**
    * Método del ciclo de vida de Angular.
