@@ -1,0 +1,70 @@
+MANUAL DE INSTALACIÓN - STARPATH RPG
+Angular 21 + Supabase
+--------------------------------------
+
+Lo que necesitas tener instalado antes de nada:
+- Node.js 18 o superior  →  nodejs.org
+- Angular CLI             →  npm install -g @angular/cli
+- Git                     →  git-scm.com
+- Una cuenta en Supabase  →  supabase.com (es gratis)
+
+
+CLONAR Y PREPARAR
+-----------------
+git clone https://github.com/Ataik7/web-starpath.git
+cd web-starpath
+npm install
+
+
+CONFIGURAR SUPABASE
+-------------------
+1. Entra en tu proyecto de Supabase y ve a Project Settings > API
+2. Copia la Project URL y la anon public key
+3. Crea el archivo src/environments/environment.ts con esto:
+
+   export const environment = {
+     production: false,
+     supabaseUrl: 'tu-url-aqui',
+     supabaseKey: 'tu-clave-aqui'
+   };
+
+4. En Supabase, ve a Authentication > URL Configuration y pon:
+   - Site URL: http://localhost:4200
+   - Redirect URLs: http://localhost:4200/**
+
+
+ARRANCAR EN LOCAL
+-----------------
+ng serve
+
+Abre el navegador en http://localhost:4200 y ya debería funcionar.
+
+
+TESTS
+-----
+ng test
+
+Se abre Karma en el navegador y ejecuta los 40 tests automáticamente.
+
+
+COMPILAR
+--------
+ng build
+
+Los archivos de producción quedan en /dist
+
+
+ESTRUCTURA DE CARPETAS
+----------------------
+src/
+├── app/
+│   ├── core/        → servicios globales (auth, datos mock, guard)
+│   ├── features/    → todas las páginas
+│   ├── models/      → interfaces TypeScript
+│   ├── routes/      → rutas de la app
+│   └── shared/      → navbar, footer, article-card
+├── environments/    → variables de entorno
+├── styles.css       → estilos globales
+└── index.html
+
+Para producción hay un environment.prod.ts aparte con los datos reales.

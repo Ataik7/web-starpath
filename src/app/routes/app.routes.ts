@@ -12,6 +12,7 @@ import { Privacy } from '../features/pages/privacy/privacy';
 import { AuthGuard } from '../core/services/auth.guard';
 import { ForgotPassword } from '../features/pages/forgot-password/forgot-password';
 import { ResetPassword } from '../features/pages/reset-password/reset-password';
+import { Help } from '../features/pages/help/help';
 
 
 export const routes: Routes = [
@@ -28,7 +29,7 @@ export const routes: Routes = [
   { path: 'privacy', component: Privacy }, // Política de privacidad
   { path: 'forgot-password', component: ForgotPassword },
   { path: 'reset-password', component: ResetPassword },
-
+  { path: 'help', component: Help }, // Centro de ayuda
 
   // Por si acaso da errores
   { path: '**', redirectTo: '', pathMatch: 'full' }

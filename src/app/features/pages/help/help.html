@@ -1,0 +1,63 @@
+<div class="help-container">
+
+  <div class="help-header">
+    <h1>Centro de Ayuda</h1>
+    <p class="subtitle">¿En qué podemos ayudarte?</p>
+  </div>
+
+  <!-- Accesos rápidos por sección -->
+  <section class="quick-links" aria-label="Accesos rápidos">
+    <h2>Ir directamente a...</h2>
+    <div class="links-grid">
+      <a routerLink="/how-to-play" class="link-card" aria-label="Cómo jugar a Starpath">
+        <span class="link-icon" role="img" aria-label="Libro">📖</span>
+        <span>Cómo jugar</span>
+      </a>
+      <a routerLink="/news" class="link-card" aria-label="Últimas noticias">
+        <span class="link-icon" role="img" aria-label="Periódico">📰</span>
+        <span>Noticias</span>
+      </a>
+      <a routerLink="/download" class="link-card" aria-label="Descargar el juego">
+        <span class="link-icon" role="img" aria-label="Descarga">⬇️</span>
+        <span>Descargas</span>
+      </a>
+      <a routerLink="/contact" class="link-card" aria-label="Contactar con soporte">
+        <span class="link-icon" role="img" aria-label="Correo">✉️</span>
+        <span>Contacto</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ desplegable -->
+  <section class="faq-section" aria-label="Preguntas frecuentes">
+    <h2>Preguntas frecuentes</h2>
+
+    @for (faq of faqs; track $index) {
+      <div class="faq-item" [class.open]="activeIndex === $index">
+        <button
+          class="faq-question"
+          (click)="toggle($index)"
+          [attr.aria-expanded]="activeIndex === $index"
+          [attr.aria-controls]="'faq-answer-' + $index">
+          <span>{{ faq.pregunta }}</span>
+          <span class="faq-icon" aria-hidden="true">{{ activeIndex === $index ? '−' : '+' }}</span>
+        </button>
+        <div
+          class="faq-answer"
+          [id]="'faq-answer-' + $index"
+          role="region"
+          [attr.aria-hidden]="activeIndex !== $index">
+          <p>{{ faq.respuesta }}</p>
+        </div>
+      </div>
+    }
+  </section>
+
+  <!-- Contacto rápido -->
+  <section class="help-contact" aria-label="¿Necesitas más ayuda?">
+    <h2>¿No encontraste lo que buscabas?</h2>
+    <p>Nuestro equipo de soporte está disponible para ayudarte.</p>
+    <a routerLink="/contact" class="btn-contact">Contactar con soporte</a>
+  </section>
+
+</div>

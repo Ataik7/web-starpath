@@ -24,7 +24,11 @@ Esta plataforma permite a los usuarios sumergirse en el ecosistema del juego ant
 * **⚡ Navegación SPA:** Experiencia fluida sin recargas completas de página gracias a la potencia de **Angular Router**.
 * **🔐 Autenticación Segura:** Sistema robusto de Login y Registro integrado con **Supabase** (Auth & DB), gestionando tokens y persistencia de sesión de forma transparente.
 * **📡 Datos Dinámicos:** Sección de noticias viva, alimentada por servicios (`MockDataService`) y construida con una arquitectura de componentes reutilizables (Comunicación Padre-Hijo).
+* **🔍 Buscador en tiempo real:** Filtrado de noticias por título y subtítulo sin recargar la página, con contador de resultados.
 * **🎨 Diseño Pixel Art Moderno:** Una interfaz UI/UX única que respira la identidad del juego, utilizando **CSS Variables**, Flexbox y Grid para un diseño totalmente responsivo.
+* **📱 Navbar adaptable:** Menú hamburguesa para dispositivos móviles con apertura y cierre automático al navegar.
+* **♿ Accesibilidad WCAG:** Skip link, navegación completa por teclado con `:focus-visible`, atributos ARIA en formularios, emojis con `role="img"` y etiquetas `visually-hidden`.
+* **❓ Centro de ayuda:** Página `/help` con preguntas frecuentes desplegables y accesos directos a las secciones principales.
 * **👤 HUD de Usuario:** Barra de navegación inteligente que muestra el estado de la sesión y el avatar del usuario en tiempo real.
 
 ---
@@ -92,7 +96,7 @@ src/app/
 ├── core/                  # Lógica central (servicios, guards, configuración)
 │   └── services/          # AuthService, MockDataService, AuthGuard, supabase.config
 ├── features/              # Páginas de la aplicación
-│   └── pages/             # Home, Login, Register, News, Contact, Download...
+│   └── pages/             # Home, Login, Register, News, Contact, Download, Help...
 ├── shared/                # Componentes reutilizables
 │   └── components/        # Navbar, Footer, ArticleCard
 ├── models/                # Interfaces TypeScript (Article...)

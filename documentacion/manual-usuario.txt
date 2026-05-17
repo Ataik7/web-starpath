@@ -1,0 +1,71 @@
+MANUAL DE USUARIO - STARPATH RPG
+https://web-starpath.vercel.app
+----------------------------------
+
+Starpath RPG es una web para un juego de rol por turnos. Desde aquí puedes
+ver las características del juego, leer noticias, descargarlo, probarlo en
+el navegador y contactar con nosotros si tienes algún problema.
+
+
+LO QUE NECESITAS
+-----------------
+Un navegador moderno (Chrome, Firefox, Edge...) e internet. Para jugar
+en el navegador necesitas tener una cuenta creada.
+
+
+LAS SECCIONES
+-------------
+
+Inicio
+  La portada. Tiene dos botones principales: uno para jugar y otro para
+  ir a noticias.
+
+Características
+  Aquí explicamos las mecánicas del juego: el combate, la exploración,
+  las habilidades, el multijugador y la tecnología que usamos.
+
+Noticias
+  Todas las actualizaciones del juego. Hay un buscador arriba para
+  filtrar por lo que quieras sin tener que recargar la página.
+
+Cómo jugar
+  Una guía rápida con los controles básicos para empezar.
+
+Descargas
+  Los instaladores del juego según la plataforma.
+
+Probar el juego
+  La versión en navegador. Necesitas haber iniciado sesión.
+
+Contacto
+  Un formulario para escribirnos. Respondemos antes de 24 horas.
+
+Ayuda
+  Preguntas frecuentes y accesos directos a las secciones más consultadas.
+
+
+CREAR UNA CUENTA
+----------------
+Dale a "Registrarse" arriba a la derecha, mete tu correo y una contraseña
+de al menos 6 caracteres. Puedes pulsar el ojo para ver lo que escribes.
+Confirma la contraseña y listo.
+
+
+INICIAR SESIÓN
+--------------
+Pulsa "Iniciar sesión", escribe tus datos y entra. Si no recuerdas la
+contraseña hay un enlace en el formulario para recuperarla por correo.
+
+
+NAVEGAR CON TECLADO
+-------------------
+La web funciona entera con teclado. Con Tab vas avanzando entre elementos
+y con Enter los activas. Al entrar a la página, si pulsas Tab aparece un
+enlace para saltar directamente al contenido sin pasar por el menú.
+
+
+CONTACTO
+--------
+Email: support@starpath.rpg
+Discord: discord.gg/starpath
+Redes: @StarpathRPG

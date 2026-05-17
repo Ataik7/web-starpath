@@ -1,0 +1,95 @@
+TUTORIALES - STARPATH RPG
+Guía de las funciones principales
+-----------------------------------
+
+
+TUTORIAL 1: CREAR UNA CUENTA
+------------------------------
+Este es el primer paso para poder acceder a todas las funciones de la web.
+
+1. Entra en la web y pulsa "Registrarse" (arriba a la derecha)
+2. Escribe tu correo electrónico
+3. Pon una contraseña. Tiene que tener al menos 6 caracteres. Puedes
+   pulsar el icono del ojo para ver lo que estás escribiendo
+4. Repite la contraseña en el segundo campo
+5. Dale a "Crear cuenta"
+
+Si todo va bien verás un mensaje de confirmación en verde. A partir de
+ahí ya puedes iniciar sesión con esos datos.
+
+Si el correo ya está registrado o las contraseñas no coinciden, aparece
+un mensaje de error en rojo explicando qué ha fallado.
+
+
+TUTORIAL 2: INICIAR Y CERRAR SESIÓN
+-------------------------------------
+Para iniciar sesión:
+1. Pulsa "Iniciar sesión" arriba a la derecha
+2. Escribe tu correo y contraseña
+3. Dale a "Entrar"
+
+Una vez dentro verás tu nombre de usuario en el navbar junto a tu nivel.
+Para cerrar sesión pulsa el botón de salida que hay al lado del avatar.
+
+Si olvidaste la contraseña, en el formulario de login hay un enlace
+"¿Olvidaste tu contraseña?". Te llegará un correo con un enlace para
+crear una nueva.
+
+
+TUTORIAL 3: BUSCAR NOTICIAS
+-----------------------------
+En la sección Noticias hay un buscador encima de las tarjetas.
+
+1. Escribe cualquier palabra en el campo de búsqueda
+2. Las tarjetas se filtran automáticamente mientras escribes, sin
+   necesidad de pulsar ningún botón
+3. Debajo del campo aparece cuántos resultados hay
+4. Para limpiar la búsqueda pulsa la X que aparece a la derecha
+   del campo
+
+El buscador busca tanto en el título como en el subtítulo de cada noticia.
+
+
+TUTORIAL 4: PROBAR EL JUEGO EN EL NAVEGADOR
+---------------------------------------------
+Esta función solo está disponible si tienes sesión iniciada.
+
+1. Inicia sesión con tu cuenta
+2. En el menú de navegación pulsa "Probar el juego"
+3. Si no has iniciado sesión, la web te redirige automáticamente
+   al login antes de dejarte entrar
+
+Si intentas acceder directamente a /game sin estar logueado, el sistema
+te manda al login automáticamente.
+
+
+TUTORIAL 5: CONTACTAR CON EL SOPORTE
+--------------------------------------
+Si tienes algún problema o quieres hacer una sugerencia:
+
+1. Ve a la sección Contacto desde el menú
+2. Rellena tu nombre o apodo
+3. Escribe tu correo (te contestaremos ahí)
+4. Elige el asunto en el desplegable:
+   - Reportar un bug
+   - Problema con mi cuenta
+   - Sugerencia
+   - Otro
+5. Escribe el mensaje explicando lo que necesitas
+6. Dale a "Enviar mensaje"
+
+El botón de enviar está deshabilitado hasta que todos los campos
+obligatorios están rellenos correctamente. Los campos obligatorios
+están marcados con un asterisco rojo.
+
+
+TUTORIAL 6: USAR LA PÁGINA DE AYUDA
+-------------------------------------
+Si tienes alguna duda rápida antes de escribir al soporte:
+
+1. Ve a Ayuda desde el pie de página
+2. Arriba tienes accesos directos a las secciones más consultadas
+3. Más abajo están las preguntas frecuentes. Pulsa cualquiera para
+   desplegarla y ver la respuesta
+4. Si no encuentras lo que buscas, al final de la página hay un botón
+   directo para ir al formulario de contacto

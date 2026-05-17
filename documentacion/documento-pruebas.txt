@@ -1,0 +1,58 @@
+PRUEBAS REALIZADAS - STARPATH RPG
+Jasmine + Karma
+----------------------------------
+
+Para las pruebas usamos Jasmine y Karma, que ya vienen integrados en
+Angular por defecto. La idea fue bastante sencilla: asegurarnos de que
+cada componente se crea bien, que la lógica funciona y que los eventos
+entre componentes padre e hijo se comportan como esperamos.
+
+Para ejecutarlos: ng test
+Resultado: 40 tests, 40 pasados, 0 fallidos.
+
+
+QUÉ HEMOS PROBADO Y POR QUÉ
+-----------------------------
+
+Lo primero que probamos en cada componente fue que se crea sin errores,
+porque si eso falla ya no tiene sentido mirar nada más.
+
+Luego fuimos componente por componente probando la lógica específica
+de cada uno:
+
+News
+  El buscador era lo más importante aquí. Probamos que si no hay texto
+  devuelve todos los artículos, que filtra bien por título y también
+  por subtítulo, y que al seleccionar un artículo se guarda correctamente.
+
+Login y Register
+  Probamos el toggle de contraseña: que al llamar a togglePassword cambia
+  de false a true, y que si se llama otra vez vuelve a false.
+
+Navbar
+  El menú hamburguesa: toggleMenu abre y cierra, y closeMenu siempre
+  deja el menú cerrado independientemente del estado anterior.
+
+ArticleCard
+  Probamos que al hacer clic emite el @Output con el artículo correcto
+  y que si no hay artículo no emite nada.
+
+MockDataService
+  Verificamos que el servicio devuelve artículos y que estos tienen
+  todas las propiedades necesarias (id, title, subtitle, etc).
+
+Help
+  Que el componente carga bien, que toggle abre la pregunta pulsada
+  y que si ya estaba abierta la cierra.
+
+El resto de componentes (Home, Feature, Contact, Download, HowToPlay,
+Privacy, ForgotPassword, ResetPassword, Footer) solo tienen el test
+básico de creación porque no tienen lógica propia que testear.
+
+
+RESULTADO FINAL
+---------------
+Todos los tests pasan. No hay ninguno fallido. El hecho de tener estos
+tests nos ayudó a detectar un par de cosas durante el desarrollo, como
+que el filtro del buscador fallaba con strings vacíos con espacios,
+que arreglamos usando trim() antes de comparar.

@@ -1,0 +1,71 @@
+CÓMO HEMOS DESPLEGADO STARPATH RPG
+Vercel + GitHub
+------------------------------------
+
+La web está en producción aquí: https://web-starpath.vercel.app
+
+Para el despliegue decidimos usar Vercel porque es gratis para proyectos
+personales, se conecta directamente con GitHub y cada vez que hacemos push
+despliega automáticamente sin tener que hacer nada más.
+
+
+CÓMO ESTÁ MONTADO
+-----------------
+El repositorio está en GitHub (github.com/Ataik7/web-starpath) en la rama
+main. Vercel está conectado a ese repositorio y tiene configurado Angular
+como framework. Cuando detecta un push en main, lanza npm install y luego
+ng build, y si todo va bien publica la nueva versión.
+
+La configuración en Vercel es básicamente esta:
+- Framework: Angular
+- Build command: ng build
+- Output directory: dist/starpath/browser
+
+Las claves de Supabase las metimos como variables de entorno en el panel
+de Vercel para no dejarlas en el código.
+
+
+PASOS QUE HICIMOS
+-----------------
+1. Subimos el proyecto a GitHub
+2. Creamos cuenta en vercel.com e importamos el repositorio
+3. Vercel detectó Angular solo y configuró el build automáticamente
+4. Añadimos las variables de entorno de Supabase en Settings
+5. En Supabase pusimos la URL de Vercel como Site URL para que el
+   login y el registro funcionen en producción
+
+Desde ese momento cualquier cambio que hacemos y subimos a main se
+despliega solo en 1-2 minutos.
+
+
+FLUJO NORMAL DE TRABAJO
+-----------------------
+Hacemos cambios en local → ng serve para probar → si va bien:
+
+git add .
+git commit -m "descripción"
+git push
+
+Y ya está en producción automáticamente.
+
+
+SI SE QUISIERA DESPLEGAR EN OTRO SITIO
+---------------------------------------
+Con GitHub Pages también funciona pero hay que ajustar el base href de
+Angular y usar el paquete gh-pages. Con Netlify es prácticamente igual
+que Vercel. Si fuera un servidor propio bastaría con copiar la carpeta
+/dist a la raíz del servidor web (Nginx, Apache...).
+
+Para este proyecto nos quedamos con Vercel porque es lo más cómodo y
+el despliegue continuo funciona sin configuración extra.
+
+
+EQUIPO Y REPARTO DE TRABAJO
+-----------------------------
+El proyecto ha sido desarrollado por dos personas:
+
+Iván Gastineau — Arquitectura frontend, diseño de la interfaz (CSS/UI/UX)
+e integración de los componentes Angular.
+
+Pablo Nicolás Gallego — Lógica de backend con Supabase, gestión de datos
+y estructura general del proyecto.
