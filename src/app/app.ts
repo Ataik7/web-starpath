@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Footer } from './shared/components/footer/footer';
@@ -24,13 +24,23 @@ import { Footer } from './shared/components/footer/footer';
   imports: [
     RouterOutlet,
     FormsModule,
-    Navbar, 
+    Navbar,
     Footer
   ],
 
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'starpath';
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    // Si Supabase redirige el token de recuperación a la raíz, lo redirigimos a /reset-password
+    const hash = window.location.hash;
+    if (hash && hash.includes('access_token') && hash.includes('type=recovery')) {
+      this.router.navigateByUrl('/reset-password' + hash);
+    }
+  }
 }

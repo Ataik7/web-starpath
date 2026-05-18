@@ -90,7 +90,7 @@ export class ForgotPassword {
 
       // Si existe, solicitamos a Supabase el envío del enlace
       const { error } = await supabase.auth.resetPasswordForEmail(this.email, {
-        redirectTo: 'http://localhost:4200/reset-password'
+        redirectTo: `${window.location.origin}/reset-password`
       });
 
       if (error) {
