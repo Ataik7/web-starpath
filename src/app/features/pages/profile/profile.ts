@@ -141,6 +141,8 @@ export class Profile implements OnInit {
         this.username = this.usernameEdit.trim();
         this.bio = this.bioEdit.trim();
         this.editMode = false;
+        // Notificamos al navbar para que actualice el username
+        window.dispatchEvent(new CustomEvent('username-updated', { detail: { username: this.username } }));
         this.successMessage = 'Perfil actualizado correctamente.';
         setTimeout(() => {
           this.successMessage = null;

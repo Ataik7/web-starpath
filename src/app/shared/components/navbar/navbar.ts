@@ -12,6 +12,7 @@ import { supabase } from '../../../core/services/supabase.config';
 export class Navbar implements OnInit {
   user: any = null;
   avatarUrl: string | null = null;
+  username: string = '';
   menuOpen = false;
 
   constructor(private cd: ChangeDetectorRef) {}
@@ -45,6 +46,12 @@ export class Navbar implements OnInit {
       this.avatarUrl = e.detail.url;
       this.cd.detectChanges();
     });
+
+    // Escucha cuando se actualiza el username desde el perfil
+    window.addEventListener('username-updated', (e: any) => {
+      this.username = e.detail.username;
+      this.cd.detectChanges();
+    });
   }
 
   async getUser() {
@@ -57,13 +64,13 @@ export class Navbar implements OnInit {
   loadAvatar(userId: string) {
     supabase
       .from('profiles')
-      .select('avatar_url')
+      .select('avatar_url, username')
       .eq('id', userId)
       .single()
       .then(({ data }) => {
         const url = data?.avatar_url || null;
-        // Añadimos timestamp para evitar que el navegador sirva la imagen en caché
         this.avatarUrl = url ? `${url}?t=${Date.now()}` : null;
+        this.username = data?.username || this.user?.email?.split('@')[0] || '';
         this.cd.detectChanges();
       });
   }
