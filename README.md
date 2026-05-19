@@ -102,9 +102,16 @@ src/app/
 ├── models/                # Interfaces TypeScript (Article...)
 └── routes/                # Configuración de Angular Router
 ```
+
+## 🌐 Web en producción
+
+[https://web-starpath.vercel.app](https://web-starpath.vercel.app)
+
 ## 👥 Autores
 
 Este proyecto ha sido desarrollado con ❤️ por:
 
 * **Iván Gastineau** - *Arquitectura Frontend, UI/UX (CSS) & Integración de componentes.*
 * **Pablo Nicolás** - *Lógica Backend (Supabase), Gestión de Datos & Estructura.*
+
+
