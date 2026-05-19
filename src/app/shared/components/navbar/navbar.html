@@ -29,11 +29,15 @@
       <div class="user-info" aria-label="Información del usuario">
         <span class="user-level" aria-label="Nivel 1">LVL 1</span>
 
-        <div class="user-profile">
+        <div class="user-profile" (click)="goToProfile()" aria-label="Ver perfil de usuario" role="button" tabindex="0">
           <span class="username" aria-label="Nombre de usuario: {{ user.email.split('@')[0] }}">{{ user.email.split('@')[0] }}</span>
-          <div class="avatar" aria-hidden="true" title="{{ user.email.split('@')[0] }}">
-            {{ user.email.charAt(0).toUpperCase() }}
-          </div>
+          @if (avatarUrl) {
+            <img [src]="avatarUrl" class="avatar avatar-img" alt="Foto de perfil" title="{{ user.email.split('@')[0] }}" />
+          } @else {
+            <div class="avatar" aria-hidden="true" title="{{ user.email.split('@')[0] }}">
+              {{ user.email.charAt(0).toUpperCase() }}
+            </div>
+          }
         </div>
 
         <button class="btn-logout" (click)="logout()" aria-label="Cerrar sesión">

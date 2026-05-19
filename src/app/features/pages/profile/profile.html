@@ -1,0 +1,131 @@
+<div class="profile-container">
+
+  <!-- Estado de carga -->
+  @if (loading) {
+    <div class="loading-state">
+      <div class="spinner" aria-label="Cargando perfil..."></div>
+      <p>Cargando perfil...</p>
+    </div>
+  }
+
+  <!-- Perfil cargado -->
+  @if (!loading && user) {
+    <div class="profile-card">
+
+      <!-- Cabecera con avatar -->
+      <div class="profile-header">
+        <div class="avatar-wrapper">
+          <!-- Si tiene foto, la mostramos; si no, la inicial -->
+          @if (avatarUrl) {
+            <img [src]="avatarUrl" class="avatar-img" alt="Foto de perfil de {{ username }}" />
+          } @else {
+            <div class="avatar-circle" aria-label="Avatar de {{ username }}">
+              {{ getInitial() }}
+            </div>
+          }
+          <!-- Botón de cambiar foto (siempre visible sobre el avatar) -->
+          <label class="avatar-upload-btn" for="avatarInput" aria-label="Cambiar foto de perfil" title="Cambiar foto">
+            📷
+          </label>
+          <input
+            id="avatarInput"
+            type="file"
+            accept="image/*"
+            class="avatar-input-hidden"
+            (change)="onAvatarSelected($event)"
+            aria-label="Seleccionar foto de perfil" />
+        </div>
+
+        <div class="profile-meta">
+          <h1 class="profile-username">{{ username }}</h1>
+          <p class="profile-email">{{ user.email }}</p>
+          <p class="profile-since">Miembro desde {{ formatDate(createdAt) }}</p>
+          @if (uploadingAvatar) {
+            <p class="uploading-text">⏳ Subiendo foto...</p>
+          }
+        </div>
+      </div>
+
+      <!-- Mensajes de éxito y error -->
+      @if (successMessage) {
+        <div class="alert alert-success" role="alert">
+          ✅ {{ successMessage }}
+        </div>
+      }
+      @if (errores.length > 0) {
+        <div class="alert alert-error" role="alert">
+          @for (err of errores; track err) {
+            <p>⚠️ {{ err }}</p>
+          }
+        </div>
+      }
+
+      <!-- Modo visualización -->
+      @if (!editMode) {
+        <div class="profile-info">
+          <div class="info-row">
+            <span class="info-label">Nombre de usuario</span>
+            <span class="info-value">{{ username }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Correo electrónico</span>
+            <span class="info-value">{{ user.email }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Descripción</span>
+            <span class="info-value">{{ bio || 'Sin descripción.' }}</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button class="btn-edit" (click)="startEdit()" aria-label="Editar perfil">
+            ✏️ Editar perfil
+          </button>
+          <button class="btn-logout" (click)="logout()" aria-label="Cerrar sesión">
+            Cerrar sesión
+          </button>
+        </div>
+      }
+
+      <!-- Modo edición -->
+      @if (editMode) {
+        <form class="edit-form" (ngSubmit)="saveProfile()" aria-label="Formulario de edición de perfil">
+          <div class="form-group">
+            <label for="username">Nombre de usuario</label>
+            <input
+              id="username"
+              type="text"
+              [(ngModel)]="usernameEdit"
+              name="username"
+              placeholder="Tu nombre de usuario"
+              autocomplete="username"
+              aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="bio">Descripción</label>
+            <textarea
+              id="bio"
+              [(ngModel)]="bioEdit"
+              name="bio"
+              rows="3"
+              placeholder="Cuéntanos algo sobre ti..."
+              aria-label="Descripción del perfil"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-save" [disabled]="saving" aria-label="Guardar cambios">
+              {{ saving ? 'Guardando...' : 'Guardar cambios' }}
+            </button>
+            <button type="button" class="btn-cancel" (click)="cancelEdit()" aria-label="Cancelar edición">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      }
+
+    </div>
+
+  }
+
+</div>

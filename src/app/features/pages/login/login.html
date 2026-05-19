@@ -64,6 +64,10 @@
           ENTRAR
         }
       </button>
+
+      @if (loading) {
+        <p class="loading-hint">La primera conexión puede tardar unos segundos...</p>
+      }
     </form>
 
     <div class="switch-auth">

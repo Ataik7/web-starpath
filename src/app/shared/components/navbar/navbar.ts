@@ -1,17 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 1. IMPORTAR ChangeDetectorRef
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { supabase } from '../../../core/services/supabase.config'; 
+import { supabase } from '../../../core/services/supabase.config';
 
-/**
- * Componente de la Barra de Navegación (Navbar)
- *
- * Maneja la navegación principal de la aplicación, muestra los enlaces
- * a las diferentes secciones y gestiona la visualización del estado
- * del usuario (logueado/no logueado).
- *
- * @author Iván Gastineau y Pablo Nicolás
- * @version 1.0
- */
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -21,63 +11,61 @@ import { supabase } from '../../../core/services/supabase.config';
 })
 export class Navbar implements OnInit {
   user: any = null;
-  /** Controla si el menú móvil está abierto */
+  avatarUrl: string | null = null;
   menuOpen = false;
 
-  // 2. Inyectar el detector de cambios (cd)
   constructor(private cd: ChangeDetectorRef) {}
 
-  /** Abre o cierra el menú hamburguesa en móvil */
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
   }
 
-  /** Cierra el menú al hacer clic en un enlace */
   closeMenu(): void {
     this.menuOpen = false;
   }
 
-  /**
-   * Método del ciclo de vida de Angular.
-   * Se ejecuta al iniciar el componente.
-   * Configura la suscripción a los cambios de autenticación de Supabase.
-   */
   ngOnInit() {
     // Comprobación inicial
     this.getUser();
 
-    // Se escuchan los cambios del LOGIN/LOGOUT
+    // Escucha cambios de sesión (login/logout)
     supabase.auth.onAuthStateChange((event, session) => {
       if (session) {
         this.user = session.user;
+        this.loadAvatar(session.user.id);
       } else {
         this.user = null;
+        this.avatarUrl = null;
       }
-
-      // 3. Obligamos a Angular a actualizar el menú justo en ese momento
       this.cd.detectChanges();
     });
   }
 
-  /**
-   * Método asíncrono para obtener el usuario actual.
-   * Consulta a Supabase y actualiza la variable local 'user'.
-   */
   async getUser() {
     const { data: { user } } = await supabase.auth.getUser();
     this.user = user;
-    this.cd.detectChanges(); // Actualizamos también aquí por si acaso
+    if (user) this.loadAvatar(user.id);
+    this.cd.detectChanges();
   }
 
-  /**
-   * Método para cerrar la sesión del usuario.
-   * Llama a Supabase para desconectar y redirige al login.
-   */
+  loadAvatar(userId: string) {
+    supabase
+      .from('profiles')
+      .select('avatar_url')
+      .eq('id', userId)
+      .single()
+      .then(({ data }) => {
+        this.avatarUrl = data?.avatar_url || null;
+        this.cd.detectChanges();
+      });
+  }
+
   async logout() {
     await supabase.auth.signOut();
-    // El onAuthStateChange detectará el 'SIGNED_OUT' y actualizará la vista solo
-    
-    // Redirigimos al login para que quede claro que ha salido
-    window.location.href = '/login'; 
+    window.location.href = '/login';
+  }
+
+  goToProfile() {
+    window.location.href = '/profile';
   }
 }

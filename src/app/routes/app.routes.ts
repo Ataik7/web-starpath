@@ -13,6 +13,7 @@ import { AuthGuard } from '../core/services/auth.guard';
 import { ForgotPassword } from '../features/pages/forgot-password/forgot-password';
 import { ResetPassword } from '../features/pages/reset-password/reset-password';
 import { Help } from '../features/pages/help/help';
+import { Profile } from '../features/pages/profile/profile';
 
 
 export const routes: Routes = [
@@ -30,6 +31,7 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPassword },
   { path: 'reset-password', component: ResetPassword },
   { path: 'help', component: Help }, // Centro de ayuda
+  { path: 'profile', component: Profile, canActivate: [AuthGuard] }, // Perfil de usuario
 
   // Por si acaso da errores
   { path: '**', redirectTo: '', pathMatch: 'full' }
