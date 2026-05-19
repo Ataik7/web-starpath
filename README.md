@@ -29,7 +29,7 @@ Esta plataforma permite a los usuarios sumergirse en el ecosistema del juego ant
 * **📱 Navbar adaptable:** Menú hamburguesa para dispositivos móviles con apertura y cierre automático al navegar.
 * **♿ Accesibilidad WCAG:** Skip link, navegación completa por teclado con `:focus-visible`, atributos ARIA en formularios, emojis con `role="img"` y etiquetas `visually-hidden`.
 * **❓ Centro de ayuda:** Página `/help` con preguntas frecuentes desplegables y accesos directos a las secciones principales.
-* **👤 HUD de Usuario:** Barra de navegación inteligente que muestra el estado de la sesión y el avatar del usuario en tiempo real.
+* **👤 Perfiles de Usuario:** Página de perfil con edición de nombre, bio y foto de avatar. Imagen almacenada en Supabase Storage con sincronización en tiempo real entre el perfil y la barra de navegación.
 
 ---
 
@@ -43,7 +43,7 @@ El proyecto ha sido construido utilizando las últimas prácticas de desarrollo 
 | **Lenguaje** | TypeScript |
 | **Estilos** | CSS3 (Variables, Flexbox, Grid), Google Fonts (Lato, Press Start 2P) |
 | **Routing** | Angular Router |
-| **Backend / BaaS** | Supabase (Authentication & Database) |
+| **Backend / BaaS** | Supabase (Authentication, Database & Storage) |
 
 ---
 
