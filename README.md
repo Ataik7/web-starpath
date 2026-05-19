@@ -96,7 +96,7 @@ src/app/
 ├── core/                  # Lógica central (servicios, guards, configuración)
 │   └── services/          # AuthService, MockDataService, AuthGuard, supabase.config
 ├── features/              # Páginas de la aplicación
-│   └── pages/             # Home, Login, Register, News, Contact, Download, Help...
+│   └── pages/             # Home, Login, Register, News, Contact, Download, Help, Profile...
 ├── shared/                # Componentes reutilizables
 │   └── components/        # Navbar, Footer, ArticleCard
 ├── models/                # Interfaces TypeScript (Article...)
