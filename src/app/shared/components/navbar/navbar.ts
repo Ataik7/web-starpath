@@ -39,6 +39,12 @@ export class Navbar implements OnInit {
       }
       this.cd.detectChanges();
     });
+
+    // Escucha el evento personalizado que lanza el perfil al subir una foto
+    window.addEventListener('avatar-updated', (e: any) => {
+      this.avatarUrl = e.detail.url;
+      this.cd.detectChanges();
+    });
   }
 
   async getUser() {
@@ -55,7 +61,9 @@ export class Navbar implements OnInit {
       .eq('id', userId)
       .single()
       .then(({ data }) => {
-        this.avatarUrl = data?.avatar_url || null;
+        const url = data?.avatar_url || null;
+        // Añadimos timestamp para evitar que el navegador sirva la imagen en caché
+        this.avatarUrl = url ? `${url}?t=${Date.now()}` : null;
         this.cd.detectChanges();
       });
   }

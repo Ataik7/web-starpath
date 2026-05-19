@@ -81,7 +81,7 @@ export class Profile implements OnInit {
     } else {
       this.username = data.username || this.user.email.split('@')[0];
       this.bio = data.bio || '';
-      this.avatarUrl = data.avatar_url || '';
+      this.avatarUrl = data.avatar_url ? `${data.avatar_url}?t=${Date.now()}` : '';
       this.createdAt = data.created_at || this.user.created_at;
     }
 
@@ -220,7 +220,11 @@ export class Profile implements OnInit {
         this.errores = ['Error al guardar la foto: ' + updateError.message];
       } else {
         // Añadimos un timestamp para forzar recarga de la imagen en el navegador
-        this.avatarUrl = publicUrl + '?t=' + Date.now();
+        const freshUrl = publicUrl + '?t=' + Date.now();
+        this.avatarUrl = freshUrl;
+        this.cd.detectChanges();
+        // Notificamos al navbar para que actualice la foto también
+        window.dispatchEvent(new CustomEvent('avatar-updated', { detail: { url: freshUrl } }));
         this.successMessage = 'Foto de perfil actualizada.';
         setTimeout(() => {
           this.successMessage = null;
